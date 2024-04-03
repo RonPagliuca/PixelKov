@@ -32,4 +32,17 @@ public class Projectile : MonoBehaviour
         targetPosition = newPosition;
         isTargetSet = true;
     }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Rabbit")) // Ensure your rabbit has the tag "Rabbit"
+        {
+            RabbitController rabbitController = other.GetComponent<RabbitController>();
+            if (rabbitController != null)
+            {
+                rabbitController.Die(); // Call a method to handle the rabbit's death
+            }
+            Destroy(gameObject); // Destroy the projectile
+        }
+    }
+
 }
