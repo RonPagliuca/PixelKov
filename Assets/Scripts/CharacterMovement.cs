@@ -163,7 +163,7 @@ public class CharacterMovement : MonoBehaviour
             Vector2 shootDirection = (mousePosition - gunBarrel.position).normalized; // Normalize to ensure consistent speed
             projectileScript.SetDirection(shootDirection);
             projectileScript.SetTargetPosition(mousePosition); // Pass the corrected mouse position
-            StartCoroutine(screenShakeController.Shake(0.015f, 0.004f)); // Duration and magnitude can be adjusted
+            StartCoroutine(screenShakeController.Shake(0.015f, 0.006f)); // Duration and magnitude can be adjusted
         }
         else
         {
