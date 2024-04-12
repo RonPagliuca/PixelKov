@@ -20,6 +20,7 @@ Library: D:\Users\ronpa\PixelKov\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_
 --assembly-defines=Unity.Timeline;
 --assembly-defines=Unity.Collections;
 --assembly-defines=Unity.2D.SpriteShape.Runtime;
+--assembly-defines=SuperTiled2Unity;
 --assembly-defines=Unity.2D.PixelPerfect;
 --assembly-defines=Unity.Mathematics;
 --assembly-defines=Unity.TextMeshPro;
@@ -110,6 +111,7 @@ Library: D:\Users\ronpa\PixelKov\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_
 --assembly-defines=Unity.Timeline;
 --assembly-defines=Unity.Collections;
 --assembly-defines=Unity.2D.SpriteShape.Runtime;
+--assembly-defines=SuperTiled2Unity;
 --assembly-defines=Unity.2D.PixelPerfect;
 --assembly-defines=Unity.Mathematics;
 --assembly-defines=Unity.TextMeshPro;

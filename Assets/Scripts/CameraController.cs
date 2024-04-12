@@ -46,11 +46,11 @@ public class CameraController : MonoBehaviour
     }
 
     void MoveCamera(Vector3 direction)
-{
-    Vector3 newPos = transform.position + new Vector3(screenBounds.x * 2 * direction.x, screenBounds.y * 2 * direction.y, 0);
-    // Adjust the speed of camera movement here with a lerpSpeed variable
-    float lerpSpeed = .75f; // Increase or decrease this value to control the smoothness
-    transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime * lerpSpeed);
-}
+    {
+        Vector3 newPos = transform.position + new Vector3(screenBounds.x * 2 * direction.x, screenBounds.y * 2 * direction.y, 0);
+        // Adjust the speed of camera movement here with a lerpSpeed variable
+        float lerpSpeed = .75f; // Increase or decrease this value to control the smoothness
+        transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime * lerpSpeed);
+    }
 
 }
