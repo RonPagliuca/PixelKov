@@ -3,7 +3,19 @@ guid: f1878b6e4fb7a0a4d8ce4394208184cf
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - map: {instanceID: 0}
+  - assaultrifleAudioSource: {instanceID: 0}
+  - equipAudioSource: {instanceID: 0}
+  - reloadingAudioSource: {instanceID: 0}
+  - emptyClipAudioSource: {instanceID: 0}
+  - fartAudioSource: {instanceID: 0}
+  - rifleTransform: {instanceID: 0}
+  - projectilePrefab: {instanceID: 0}
+  - gunBarrel: {instanceID: 0}
+  - muzzleFlashParticleSystem: {instanceID: 0}
+  - screenShakeController: {instanceID: 0}
+  - screenFlashImage: {fileID: 4900840840676760284, guid: f2396ca398a1f1449a7460e3676ce6f5, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -22,14 +23,22 @@ public class CharacterMovement : MonoBehaviour
     private float timeSinceLastShot = 0; // Time since last shot was fired
     private bool isFacingLeft = false; // Track the character's facing direction
     public ParticleSystem muzzleFlashParticleSystem;
-    public ScreenShakeController screenShakeController;
+    private ScreenShakeController screenShakeController;
     private BoundsInt tilemapBounds;
+    private float flashDuration = 0.005f;
+    public Image screenFlashImage;
+    private bool isFlashing = false;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         bulletCount = 30;
         tilemapBounds = map.cellBounds; // Get the cell bounds of the tilemap
+        
+        screenShakeController = Camera.main.GetComponent<ScreenShakeController>();
+        screenShakeController.screenFlashImage = screenFlashImage; // Assign the screen flash image to the screen shake controller
+
+
     }
 
     void Update()
@@ -153,6 +162,14 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
+    IEnumerator FlashScreen()
+    {
+        isFlashing = true;
+        screenFlashImage.color = new Color(0, 0, 0, 1); // Set the flash color to white with full opacity
+        yield return new WaitForSeconds(flashDuration); // Duration of the flash
+        screenFlashImage.color = new Color(0, 0, 0, 0); // Reset to fully transparent
+        isFlashing = false;
+    }
     void AimRifle()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -201,7 +218,9 @@ public class CharacterMovement : MonoBehaviour
             Vector2 shootDirection = (mousePosition - gunBarrel.position).normalized; // Normalize to ensure consistent speed
             projectileScript.SetDirection(shootDirection);
             projectileScript.SetTargetPosition(mousePosition); // Pass the corrected mouse position
-            StartCoroutine(screenShakeController.Shake(0.015f, 0.006f)); // Duration and magnitude can be adjusted
+            StartCoroutine(screenShakeController.Shake(0.03f, 0.02f)); // Duration and magnitude can be adjusted
+            //StartCoroutine(screenShakeController.ShakeScreen(0.008f, 0.0008f)); // Duration and magnitude can be adjusted
+            StartCoroutine(FlashScreen());
         }
         else
         {
